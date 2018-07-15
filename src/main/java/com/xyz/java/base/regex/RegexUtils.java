@@ -21,8 +21,8 @@ public class RegexUtils {
     }
 
     public static void main(String[] args) {
-        String context = "abcefg";
-        String regex = "^abc";
-        System.out.println(isMatch(regex,context));
+        String context = "abcefgefg";
+        String regex = "abcefgefg";
+        System.out.println(isMatch(regex, context));
     }
 }
