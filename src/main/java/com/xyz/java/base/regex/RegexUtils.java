@@ -1,5 +1,6 @@
 package com.xyz.java.base.regex;
 
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
@@ -17,12 +18,18 @@ public class RegexUtils {
 
 
     public static boolean isMatch(String regex,String matchStr){
-        return Pattern.matches(regex,matchStr);
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(matchStr);
+        return matcher.matches();
     }
 
     public static void main(String[] args) {
-        String context = "abcefgefg";
-        String regex = "abcefgefg";
-        System.out.println(isMatch(regex, context));
+//        String context = "w";
+//        String regex = ".";
+//        System.out.println(isMatch(regex, context));
+
+        String context = "123abc";
+        String regex = "^[0-9]+abc$";
+        System.out.println(isMatch(context,regex));
     }
 }
