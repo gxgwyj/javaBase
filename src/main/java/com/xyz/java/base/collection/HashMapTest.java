@@ -9,8 +9,5 @@ package com.xyz.java.base.collection;
 public class HashMapTest {
 
     public static void main(String[] args) {
-        int i = 1 >> 2;
-        System.out.println(i);
-        System.out.println(Integer.toBinaryString(1));
     }
 }

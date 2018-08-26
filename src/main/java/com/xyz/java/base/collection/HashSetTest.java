@@ -7,8 +7,8 @@ import java.util.Set;
 
 /**
  * 类: HashSetTest <br>
- * 描述: <br>
- * 作者:  Administrator<br>
+ * 描述: HashSet中的本质是HashMap，里面存放不可重复的元素<br>
+ * 作者:  gaoxugang<br>
  * 时间: 2018年08月15日 15:22
  */
 public class HashSetTest {
