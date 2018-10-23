@@ -26,5 +26,9 @@ public class BasicVariableDefaultValue {
         System.out.println("char:"+ defaultValue.cr);
         System.out.println("boolean:"+ defaultValue.blen);
         System.out.println("Object:"+ defaultValue.object);
+
+        float a = 1.32344435f;//float 是八位有效数字（产生四舍五入）
+        System.out.println(a);
+
     }
 }
