@@ -15,6 +15,13 @@
             <artifactId>jackson-databind</artifactId>
             <version>2.9.5</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/cn.jiangzeyin.security/simple-des -->
+        <dependency>
+            <groupId>cn.jiangzeyin.security</groupId>
+            <artifactId>simple-des</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
