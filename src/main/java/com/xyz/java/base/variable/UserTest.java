@@ -8,6 +8,9 @@ public class UserTest {
 
 
     public static void main(String[] args) {
-        UserTest userTest = new UserTest();
+        User user1 = new User();
+        System.out.println(user1.hashCode());
+        user1.setName("james");
+        System.out.println(user1.hashCode());
     }
 }
