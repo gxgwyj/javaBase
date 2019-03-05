@@ -13,8 +13,8 @@ public class ArrayListTest {
     @Test
     public void testListAdd(){
         List<String> list = new ArrayList<String>();
-        ListTest.addElements(list);
-        ListTest.findAllElementsTime(list);
+        ListOperate.addElements(list);
+        ListOperate.findAllElementsTime(list);
     }
 
 }

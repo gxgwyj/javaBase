@@ -25,7 +25,7 @@ public class PrivilegedFileUtil {
      * @param fileName
      * @return
      */
-    public void createFilePrivileged(String fileName) {
+    public void createFilePrivileged(final String fileName) {
         AccessController.doPrivileged(new PrivilegedAction<String>() {
             @Override
             public String run() {

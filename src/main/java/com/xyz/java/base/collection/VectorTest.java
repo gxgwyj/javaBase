@@ -14,8 +14,8 @@ public class VectorTest {
     @Test
     public void testVectorAdd(){
         Vector<String> vector = new Vector<String>();
-        ListTest.addElements(vector);
-        ListTest.findAllElementsTime(vector);
+        ListOperate.addElements(vector);
+        ListOperate.findAllElementsTime(vector);
 
     }
 }

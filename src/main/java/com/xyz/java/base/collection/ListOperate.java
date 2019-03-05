@@ -4,12 +4,12 @@ import java.text.MessageFormat;
 import java.util.List;
 
 /**
- * 类: ListTest <br>
- * 描述: <br>
+ * 类: ListOperate <br>
+ * 描述: list操作<br>
  * 作者:  Administrator<br>
  * 时间: 2018年08月15日 14:30
  */
-public class ListTest {
+public class ListOperate {
 
     /**
      * 测试添加50000各元素所使用的时间

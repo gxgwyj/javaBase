@@ -14,7 +14,7 @@ public class LinkedListTest {
     public void testListAdd(){
 
         List<String> list = new LinkedList<String>();
-        ListTest.addElements(list);
-        ListTest.findAllElementsTime(list);
+        ListOperate.addElements(list);
+        ListOperate.findAllElementsTime(list);
     }
 }
