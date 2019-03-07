@@ -52,7 +52,7 @@ public class MyHashMap4java8<K, V> {
     }
 
     /**
-     * HashMap的内部数据结果
+     * HashMap的内部数据结果(单向链表)
      *
      * @param <K>
      * @param <V>
@@ -99,11 +99,20 @@ public class MyHashMap4java8<K, V> {
          * 红黑树形结构
          */
         static final class TreeNode<K, V>{
-            TreeNode<K,V> parent;
-            TreeNode<K,V> left;
-            TreeNode<K,V> right;
-            TreeNode<K,V> prev;
+            TreeNode<K, V> parent;
+            TreeNode<K, V> left;
+            TreeNode<K, V> right;
+            TreeNode<K, V> prev;
             boolean red;
+
+            final TreeNode<K,V> root() {
+                for (TreeNode<K, V> r = this, p; ; ) {
+                    if ((p = r.parent) == null) {
+                        return r;
+                    }
+                    r = p;
+                }
+            }
         }
 
         /**
@@ -205,8 +214,12 @@ public class MyHashMap4java8<K, V> {
         // 设置最新的阀值
         if (newThr == 0) {
             float ft = (float)newCap * loadFactor;
-            newThr = (newCap < MAXIMUM_CAPACITY && ft < (float)MAXIMUM_CAPACITY ?
-                    (int)ft : Integer.MAX_VALUE);
+            if (newCap < MAXIMUM_CAPACITY && ft < (float) MAXIMUM_CAPACITY) {
+                newThr = (int) ft;
+            } else {
+                newThr = Integer.MAX_VALUE;
+            }
+            newThr = (newCap < MAXIMUM_CAPACITY && ft < (float)MAXIMUM_CAPACITY ? (int)ft : Integer.MAX_VALUE);
         }
 
         // 创建最新的数组空间
@@ -215,6 +228,7 @@ public class MyHashMap4java8<K, V> {
         Node<K,V>[] newTab = (Node<K,V>[])new Node[newCap];
         table = newTab;
 
+        // 移动原来的数据
         if (oldTab != null) {
             for (int j = 0; j < oldCap; ++j) {
                 Node<K,V> e;
