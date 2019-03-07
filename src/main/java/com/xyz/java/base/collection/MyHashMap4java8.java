@@ -96,26 +96,6 @@ public class MyHashMap4java8<K, V> {
         }
 
         /**
-         * 红黑树形结构
-         */
-        static final class TreeNode<K, V>{
-            TreeNode<K, V> parent;
-            TreeNode<K, V> left;
-            TreeNode<K, V> right;
-            TreeNode<K, V> prev;
-            boolean red;
-
-            final TreeNode<K,V> root() {
-                for (TreeNode<K, V> r = this, p; ; ) {
-                    if ((p = r.parent) == null) {
-                        return r;
-                    }
-                    r = p;
-                }
-            }
-        }
-
-        /**
          * 重写hashCode方法
          *
          * @return
@@ -143,6 +123,26 @@ public class MyHashMap4java8<K, V> {
                 }
             }
             return false;
+        }
+    }
+
+    /**
+     * 红黑树形结构
+     */
+    static final class TreeNode<K, V>{
+        TreeNode<K, V> parent;
+        TreeNode<K, V> left;
+        TreeNode<K, V> right;
+        TreeNode<K, V> prev;
+        boolean red;
+
+        final TreeNode<K,V> root() {
+            for (TreeNode<K, V> r = this, p; ; ) {
+                if ((p = r.parent) == null) {
+                    return r;
+                }
+                r = p;
+            }
         }
     }
 
@@ -182,6 +182,10 @@ public class MyHashMap4java8<K, V> {
     }
 
 
+    /**
+     * 重新计算数组的长度
+     * @return
+     */
     final Node<K, V>[] resize() {
         Node<K,V>[] oldTab = table;
         // 原来数组的长度
@@ -193,8 +197,6 @@ public class MyHashMap4java8<K, V> {
         // 新的负载因子
         int newThr = 0;
 
-
-        // 这一段代码主要根据数组的原来的容量来改变hashMap集合的阀值、最新容量
         if (oldCap > 0) {
             // 如果当前数组的长度超过设定最大长度，直接返回原来的数组
             if (oldCap >= MAXIMUM_CAPACITY) {
@@ -211,7 +213,7 @@ public class MyHashMap4java8<K, V> {
             newThr = (int) (DEFAULT_INITIAL_CAPACITY * DEFAULT_LOAD_FACTOR);
         }
 
-        // 设置最新的阀值
+        // 设置最新的阀值  阀值 = 容量 * 负载因子（0.75）
         if (newThr == 0) {
             float ft = (float)newCap * loadFactor;
             if (newCap < MAXIMUM_CAPACITY && ft < (float) MAXIMUM_CAPACITY) {
@@ -219,20 +221,20 @@ public class MyHashMap4java8<K, V> {
             } else {
                 newThr = Integer.MAX_VALUE;
             }
-            newThr = (newCap < MAXIMUM_CAPACITY && ft < (float)MAXIMUM_CAPACITY ? (int)ft : Integer.MAX_VALUE);
         }
-
-        // 创建最新的数组空间
         threshold = newThr;
+        // 创建最新的数组空间
         @SuppressWarnings({"rawtypes","unchecked"})
         Node<K,V>[] newTab = (Node<K,V>[])new Node[newCap];
         table = newTab;
 
-        // 移动原来的数据
+        // 移动原来的数据（将原来的数组数据移动到新的数组中）
         if (oldTab != null) {
             for (int j = 0; j < oldCap; ++j) {
                 Node<K,V> e;
+                // 先将原来的值放到一个新的临时变量
                 if ((e = oldTab[j]) != null) {
+                    // 将原值置空（垃圾回收处理）
                     oldTab[j] = null;
                     if (e.next == null) {
                         newTab[e.hash & (newCap - 1)] = e;
