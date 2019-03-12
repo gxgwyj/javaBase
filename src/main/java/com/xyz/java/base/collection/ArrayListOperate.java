@@ -2,19 +2,19 @@ package com.xyz.java.base.collection;
 
 import org.junit.Test;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 测试LinkedList
+ * ArrayList 操作
  */
-public class LinkedListTest {
+public class ArrayListOperate {
 
     @Test
     public void testListAdd(){
-
-        List<String> list = new LinkedList<String>();
+        List<String> list = new ArrayList<String>();
         ListOperate.addElements(list);
         ListOperate.findAllElementsTime(list);
     }
+
 }

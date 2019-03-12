@@ -7,12 +7,12 @@ import java.util.Stack;
 import java.util.Vector;
 
 /**
- * 类: ListCompareTest <br>
+ * 类: ListCompareOperate <br>
  * 描述: <br>
  * 作者:  Administrator<br>
  * 时间: 2018年08月06日 18:07
  */
-public class ListCompareTest {
+public class ListCompareOperate {
 
     private static final int COUNT = 100000;
 
