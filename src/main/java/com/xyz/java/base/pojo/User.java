@@ -1,4 +1,4 @@
-package com.xyz.java.base.variable;
+package com.xyz.java.base.pojo;
 
 /**
  * Created by Lenovo on 2018/10/18.

@@ -1,5 +1,7 @@
 package com.xyz.java.base.variable;
 
+import com.xyz.java.base.pojo.User;
+
 /**
  * Created by Lenovo on 2018/10/18.
  */
