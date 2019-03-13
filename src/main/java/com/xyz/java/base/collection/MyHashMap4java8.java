@@ -27,6 +27,11 @@ public class MyHashMap4java8<K, V> {
     static final float MAXIMUM_CAPACITY = 1 << 30;
 
     /**
+     * 从单向链表转换成红黑树的阀值
+     */
+    static final int TREEIFY_THRESHOLD = 8;
+
+    /**
      * 存储HashMap的实际数据结构（实际上是一个数组）
      */
     transient Node<K, V>[] table;
@@ -129,14 +134,27 @@ public class MyHashMap4java8<K, V> {
     /**
      * 红黑树形结构
      */
-    static final class TreeNode<K, V>{
+    static final class TreeNode<K, V> extends Node {
+
         TreeNode<K, V> parent;
         TreeNode<K, V> left;
         TreeNode<K, V> right;
         TreeNode<K, V> prev;
         boolean red;
 
-        final TreeNode<K,V> root() {
+        /**
+         * 构造方法
+         *
+         * @param hash
+         * @param key
+         * @param value
+         * @param next
+         */
+        TreeNode(int hash, Object key, Object value, Node next) {
+            super(hash, key, value, next);
+        }
+
+        final TreeNode<K, V> root() {
             for (TreeNode<K, V> r = this, p; ; ) {
                 if ((p = r.parent) == null) {
                     return r;
@@ -144,7 +162,13 @@ public class MyHashMap4java8<K, V> {
                 r = p;
             }
         }
+
+        final TreeNode<K, V> putTreeVal(MyHashMap4java8<K, V> map, Node<K, V>[] tab,
+                                        int h, K k, V v) {
+            return null;
+        }
     }
+
 
     /**
      * hash(散列的计算方法)
@@ -172,9 +196,35 @@ public class MyHashMap4java8<K, V> {
         // 数组索引
         int i;
 
-        // 首先判断数组是否为空
+        // 数组为空时初始化数组
         if ((tab = table) == null || (n = tab.length) == 0) {
-            n = 1;
+            n = (tab = resize()).length;
+        }
+        // 判断数组索引位置是否为空，为空的话直接赋值
+        if ((p = tab[i = hash & (n - 1)]) == null) {
+            tab[i] = newNode(hash, key, value, null);
+        } else {
+            Node<K,V> e;
+            K k;
+            if (p.hash == hash && ((k = p.key) == key || (key != null && key.equals(k)))) {
+                e = p;
+            } else if (p instanceof TreeNode) {
+                e = ((TreeNode<K, V>) p).putTreeVal(this, tab, hash, key, value);
+            } else {
+                // 跑到链表的最后一个位置
+                for (int binCount = 0; ; ++binCount) {
+                    // 链表插入
+                    if ((e = p.next) == null) {
+                        p.next = newNode(hash, key, value, null);
+                        if (binCount >= TREEIFY_THRESHOLD - 1) {
+                            break;
+                        }
+                        if (e.hash==hash && ((k = e.key) == key || (key != null && key.equals(k)))) {
+                            break;
+                        }
+                    }
+                }
+            }
         }
 
         return null;
@@ -243,6 +293,10 @@ public class MyHashMap4java8<K, V> {
             }
         }
         return null;
+    }
+
+    Node<K, V> newNode(int hash, K key, V value, Node<K, V> next) {
+        return new Node<>(hash, key, value, next);
     }
 
 }

@@ -1,5 +1,7 @@
 package com.xyz.java.base.collection;
 
+import org.junit.Test;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,15 +13,12 @@ import java.util.Map;
  */
 public class HashMapOperate {
 
-    public static void main(String[] args) {
-        putAllMaps();
-    }
-
 
     /**
-     * 将一个map放入另一个map
+     * map 操作
      */
-    public static void putAllMaps() {
+    @Test
+    public void mapPutOperate() {
         Map<String, String> mapData = new HashMap<>();
         int size = 20;
         for (int i = 0; i < size; i++) {
@@ -27,8 +26,5 @@ public class HashMapOperate {
             String value = "value" + i;
             mapData.put(key, value);
         }
-
-        Map<String, String> allData = new HashMap<>();
-        allData.putAll(mapData);
     }
 }
