@@ -2,6 +2,7 @@ package com.xyz.java.base.jdbc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class ConnectionFactory {
 
@@ -20,8 +21,14 @@ public class ConnectionFactory {
         }
     }
 
-    public static void main(String[] args) {
-        System.out.println(getConnection());
+    public static void main(String[] args) throws SQLException {
+        for (int i = 0; i < 20 ; i++) {
+            Connection connection = getConnection();
+            connection.close();
+        }
+        while (true){
+
+        }
     }
 
 
