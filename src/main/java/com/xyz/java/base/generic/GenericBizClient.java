@@ -5,5 +5,8 @@ public class GenericBizClient {
         GenericBiz<String> genericBiz = new GenericBiz<>();
         String obj = genericBiz.getObj();
         obj.charAt(1);
+
+        GenericMethod genericMethod = new GenericMethod();
+        String str = genericMethod.getBizStr();
     }
 }
