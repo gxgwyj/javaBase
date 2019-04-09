@@ -20,11 +20,9 @@ public class HashMapOperate {
     @Test
     public void mapPutOperate() {
         Map<String, String> mapData = new HashMap<>();
-        int size = 20;
-        for (int i = 0; i < size; i++) {
-            String key = "key" + i;
-            String value = "value" + i;
-            mapData.put(key, value);
-        }
+        mapData.put("200","abc");
+        mapData.put("abc","200");
+        mapData.put("300","300");
+        mapData.put("200","qwww");
     }
 }
