@@ -5,6 +5,9 @@ package com.xyz.java.base.multithread.notify;
  */
 public class WaitThread extends Thread {
 
+    /**
+     * 对象锁
+     */
     private Object lock;
 
     public WaitThread(Object lock) {

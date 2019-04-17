@@ -5,6 +5,9 @@ package com.xyz.java.base.multithread.notify;
  */
 public class NotifyThread extends Thread {
 
+    /**
+     * 对象锁
+     */
     private Object lock;
 
     public NotifyThread(Object lock) {
