@@ -9,6 +9,7 @@ public class LoopTest {
         if (i++ > 100) {
             System.out.println("i++");
         }
+        System.out.println(i);
         if (++i > 100) {
             System.out.println("++i");
         }

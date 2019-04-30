@@ -35,4 +35,12 @@ public class StringOperate {
         System.out.println("StringBuffer 使用时间：" + (end - start));
     }
 
+    @Test
+    public void compareStrConstant() {
+        String str1 = "abcd";
+        String str2 = "abcd";
+        // 返回true
+        System.out.println(str1 == str2);
+    }
+
 }
