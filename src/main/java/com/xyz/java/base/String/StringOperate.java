@@ -2,6 +2,8 @@ package com.xyz.java.base.String;
 
 import org.junit.Test;
 
+import java.util.StringTokenizer;
+
 /**
  * 类: StringOperate <br>
  * 描述: 字符串操作<br>
@@ -41,6 +43,15 @@ public class StringOperate {
         String str2 = "abcd";
         // 返回true
         System.out.println(str1 == str2);
+    }
+
+    @Test
+    public void testStringToken() {
+        String str = "name1,name2;name1,hello,i am town";
+        StringTokenizer stringTokenizer = new StringTokenizer(str,",;");
+        while (stringTokenizer.hasMoreElements()) {
+            System.out.println(stringTokenizer.nextElement());
+        }
     }
 
 }
