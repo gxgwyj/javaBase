@@ -54,4 +54,15 @@ public class StringOperate {
         }
     }
 
+
+    public static void main(String[] args) {
+        String str = "aaa";
+        ttt(str);
+        System.out.println(str);
+    }
+
+    public static void ttt(String aaa) {
+        aaa = "bbbb";
+    }
+
 }
