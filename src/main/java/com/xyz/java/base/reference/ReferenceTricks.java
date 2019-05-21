@@ -7,9 +7,12 @@ package com.xyz.java.base.reference;
  * 时间: 2019年02月25日 15:14
  */
 public class ReferenceTricks {
-
     public int i;
 
+    /**
+     * tricks  方法参数其实是一个（地址变量，即内存地址变量），对原来地址变量的一份拷贝
+     * @param tricks
+     */
     private static void changeReference(ReferenceTricks tricks) {
         // tricks改变并不会影响原参数（属于原来的一份拷贝，临时变量表，使用的时候需要压入栈）
         tricks = new ReferenceTricks();
