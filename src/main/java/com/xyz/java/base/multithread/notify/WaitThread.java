@@ -10,6 +10,14 @@ public class WaitThread extends Thread {
      */
     private Object lock;
 
+
+    public WaitThread(String name, Object lock) {
+        setName(name);
+        this.lock = lock;
+
+    }
+
+
     public WaitThread(Object lock) {
         super();
         this.lock = lock;
@@ -19,14 +27,15 @@ public class WaitThread extends Thread {
     public void run() {
         try {
             synchronized (lock) {
-                System.out.println("开始    wait time = " + System.currentTimeMillis());
+                System.out.println(Thread.currentThread().getName());
+                System.out.println(Thread.currentThread().getName()+":开始" + System.currentTimeMillis());
                 int i = 1+3;
                 // 释放锁的点(阻塞)
                 lock.wait();
                 // 获取锁后开始运行的点
                 System.out.println("获取锁后执行的第一个代码");
                 System.out.println(i);
-                System.out.println("结束    wait time = " + System.currentTimeMillis());
+                System.out.println(Thread.currentThread().getName()+":结束" + System.currentTimeMillis());
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
