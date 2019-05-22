@@ -20,6 +20,8 @@ public class NotifyThread extends Thread {
             synchronized (lock) {
                 System.out.println("开始    notify time = " + System.currentTimeMillis());
 //                lock.notify();
+                // 调用notify后，线程并没有释放锁，只是通知其他线程做好获取锁的准备，
+                // 既改变线程的状态，只有线程离开该同步方法后才，才释放了对象锁。
                 lock.notifyAll();
                 System.out.println("结束    notify time = " + System.currentTimeMillis());
                 System.out.println("这段代码执行后，其他的线程才能获取锁");
