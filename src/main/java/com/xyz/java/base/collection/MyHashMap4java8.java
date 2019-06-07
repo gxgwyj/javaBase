@@ -12,7 +12,7 @@ import java.util.Set;
  */
 public class MyHashMap4java8<K, V> {
     /**
-     * 默认的初始容量 16
+     * 默认的初始容量 （数组的容量）16
      */
     static final int DEFAULT_INITIAL_CAPACITY = 1 << 4;
 
