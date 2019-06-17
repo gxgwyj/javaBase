@@ -20,6 +20,7 @@ public class HashMapOperate {
     @Test
     public void mapPutOperate() {
         Map<String, String> mapData = new HashMap<>();
+        Map<String, String> map = new HashMap<>(3);
         mapData.put("200","abc");
         mapData.put("abc","200");
         mapData.put("300","300");
