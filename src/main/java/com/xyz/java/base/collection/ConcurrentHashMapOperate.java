@@ -18,7 +18,7 @@ public class ConcurrentHashMapOperate {
         Map<String, String> map = new ConcurrentHashMap<>();
         map.put("key1","value1");
         // 如果不存在则覆盖key1值
-        map.putIfAbsent("key1","value2");
+        ((ConcurrentHashMap<String, String>) map).putIfAbsent("key1","value2");
         System.out.println(map.get("key1"));
     }
 }

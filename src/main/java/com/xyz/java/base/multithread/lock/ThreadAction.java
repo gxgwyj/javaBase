@@ -3,7 +3,7 @@ package com.xyz.java.base.multithread.lock;
 public class ThreadAction {
 
     public static void main(String[] args) {
-        SynchronizeMethod lockObj = new SynchronizeMethod("共享锁");
+        final SynchronizeMethod lockObj = new SynchronizeMethod("共享锁");
 
         new Thread(new Runnable() {
             @Override

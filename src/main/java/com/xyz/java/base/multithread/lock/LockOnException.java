@@ -9,7 +9,7 @@ package com.xyz.java.base.multithread.lock;
 public class LockOnException {
     public static void main(String[] args) {
         // 锁
-        Object lock = new Object();
+        final Object lock = new Object();
 
 
         new Thread(new Runnable() {

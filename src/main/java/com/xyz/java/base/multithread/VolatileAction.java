@@ -22,7 +22,7 @@ public class VolatileAction {
 
     public static void main(String[] args) {
 
-        VolatileAction action = new VolatileAction();
+        final VolatileAction action = new VolatileAction();
         action.setName("start");
 
         new Thread(new Runnable() {

@@ -12,7 +12,7 @@ public class ReentrantLockAction {
 
     public static void main(String[] args) {
 
-        ReentrantLockMethod lock = new ReentrantLockMethod();
+        final ReentrantLockMethod lock = new ReentrantLockMethod();
        new Thread(new Runnable() {
            @Override
            public void run() {
