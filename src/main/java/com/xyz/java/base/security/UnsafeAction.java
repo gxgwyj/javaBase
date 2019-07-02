@@ -18,10 +18,9 @@ public class UnsafeAction {
         Field staticIntField = UnsafeBean.class.getDeclaredField("staticInt");
         staticIntField.setAccessible(true);
         Field field = Unsafe.class.getDeclaredField("theUnsafe");
-        //无视权限
         field.setAccessible(true);
         Unsafe unsafe = (Unsafe) field.get(null);
-        // 获取到的内从地址
+        // 获取静态变量的内存地址
         long staticIntAddress = unsafe.staticFieldOffset(staticIntField);
         System.out.println(staticIntAddress);
         //使用 put 方法进行值改变，需要传入其所在的 class 对象、内存地址和新的值
