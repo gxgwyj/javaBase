@@ -39,7 +39,5 @@ public class ReferenceTricks {
         // 本质上是值传递，原来值的一个拷贝，不会影响原来的引用值
         changeReference(r);
         System.out.println("改变【引用】之后的数据i=" + r.i);
-
-
     }
 }
