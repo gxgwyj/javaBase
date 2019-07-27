@@ -15,5 +15,8 @@ public class TestJdkCl {
         System.out.println("扩展类加载器：" + plaClassLoader.getClass().getName());
         ClassLoader classLoader = TestJdkCl.class.getClassLoader();
 
+        // String 的类加载器打印为null，因为String使用引导类加载器，引导类加载器主要加载rt.jar下面的类，所以为空
+        System.out.println(String.class.getClassLoader());
+
     }
 }
