@@ -84,12 +84,48 @@ public class SortTest {
 
     }
 
+    @Test
+    public void testQucikSort() {
+        System.out.println("快速排序法");
+        int narr[] = quickSort(arr, 0, arr.length - 1);
+        printOut(arr);
+
+    }
+
 
     /**
      * 快速排序法
+     * 百度百科
      * https://blog.csdn.net/asdfsadfasdfsa/article/details/83009869
      */
-    public void quickSort() {
+    public int[] quickSort(int arr[],int start,int end) {
+        int pivot = arr[start];
+        int i = start;
+        int j = end;
+        while (i < j) {
+            // 找出右面比基数小的数字
+            while ((i < j) && (arr[j] > pivot)) {
+                j--;
+            }
+            // 再找出左面比基数大的数字
+            while ((i < j) && (arr[i] < pivot)) {
+                i++;
+            }
+            if ((arr[i] == arr[j]) && (i < j)) {
+                i++;
+            } else {
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+        if (i - 1 > start) {
+            arr = quickSort(arr, start, i - 1);
+        }
+        if (j + 1 < end) {
+            arr = quickSort(arr, j+1, end);
+        }
+        return arr;
 
     }
 
