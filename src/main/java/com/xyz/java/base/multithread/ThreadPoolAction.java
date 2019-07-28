@@ -2,8 +2,11 @@ package com.xyz.java.base.multithread;
 
 import org.junit.Test;
 
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
@@ -19,6 +22,9 @@ public class ThreadPoolAction {
         System.out.println(i);
     }
 
+    /**
+     * 适用于并发执行大量的小任务
+     */
     @Test
     public void testCachedThreadPool() {
         //创建一个可缓存线程池
@@ -49,6 +55,9 @@ public class ThreadPoolAction {
         }
     }
 
+    /**
+     * Fixed线程池适用于处理CPU密集型任务，确保CPU在长期被工作线程使用的情况下，尽可能的少分配线程，适用执行长期的任务
+     */
     @Test
     public void testFixedThreadPool() {
         //创建一个可重用固定个数的线程池
@@ -93,6 +102,9 @@ public class ThreadPoolAction {
 
     }
 
+    /**
+     *适用于串行执行任务的场景，一个任务一个任务地执行。
+     */
     @Test
     public void testSingleThreadExecutor() {
         ExecutorService singleThreadExecutor = Executors.newSingleThreadExecutor();
@@ -110,6 +122,60 @@ public class ThreadPoolAction {
                 }
             });
         }
+        while (true) {
+
+        }
+    }
+
+
+    @Test
+    public void threadPoolException() {
+//        ThreadPoolExecutor executor = new ThreadPoolExecutor(10,20,60,TimeUnit.SECONDS,new LinkedBlockingDeque());
+        ExecutorService threadPool = Executors.newFixedThreadPool(5);
+        for (int i = 0; i < 5; i++) {
+            Future<?> future = threadPool.submit(new Runnable() {
+                @Override
+                public void run() {
+                    System.out.println("current thread name" + Thread.currentThread().getName());
+                    Object object = null;
+                    System.out.print("result## " + object.toString());
+                }
+            });
+            try {
+                future.get();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            }
+        }
+
+        while (true) {
+
+        }
+    }
+
+    @Test
+    public void threadPoolException1() {
+
+        ExecutorService executorService = Executors.newFixedThreadPool(1);
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Object object = null;
+                System.out.println(object.toString());
+            }
+        });
+        t.setUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {
+            @Override
+            public void uncaughtException(Thread t, Throwable e) {
+                System.out.println(t.getName() + ":" + e);
+            }
+        });
+
+
+        executorService.execute(t);
+
         while (true) {
 
         }
