@@ -99,9 +99,11 @@ public class SortTest {
      * https://blog.csdn.net/asdfsadfasdfsa/article/details/83009869
      */
     public int[] quickSort(int arr[],int start,int end) {
+        // 取首个数字为基数，将数组中所有大于基数的数字排到基数的右方，小于基数的数字排到基数的左方
         int pivot = arr[start];
         int i = start;
         int j = end;
+        // 根据基数拆分数组为两部分-----开始
         while (i < j) {
             // 找出右面比基数小的数字
             while ((i < j) && (arr[j] > pivot)) {
@@ -111,6 +113,7 @@ public class SortTest {
             while ((i < j) && (arr[i] < pivot)) {
                 i++;
             }
+            // 找到之后，调换一下位置，继续下一轮，直到满足条件i=j后，基数至中结束
             if ((arr[i] == arr[j]) && (i < j)) {
                 i++;
             } else {
@@ -118,7 +121,10 @@ public class SortTest {
                 arr[i] = arr[j];
                 arr[j] = temp;
             }
+
         }
+        // 根据基数拆分数组为两部分-----结束
+
         if (i - 1 > start) {
             arr = quickSort(arr, start, i - 1);
         }
