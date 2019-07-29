@@ -15,6 +15,7 @@ public class ReferenceTest {
 
         obj1 = null;
         obj2 = null;
+        System.gc();
 
 
         /**
