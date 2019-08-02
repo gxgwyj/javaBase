@@ -9,7 +9,7 @@ public class ThreadPrintNumber1 {
 
     public static void main(String[] args) {
 
-        Object object = new Object();
+        final Object object = new Object();
 
 
         Thread t1 = new Thread(new Runnable() {
