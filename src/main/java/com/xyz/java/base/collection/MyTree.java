@@ -25,5 +25,8 @@ public class MyTree {
         System.out.println(sshift);
         System.out.println(ssize);
 
+        Map<String, String> map = new ConcurrentHashMap<>();
+        map.put("key1","value1");
+
     }
 }

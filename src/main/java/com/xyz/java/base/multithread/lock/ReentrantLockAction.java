@@ -147,4 +147,20 @@ public class ReentrantLockAction {
     }
 
 
+    /**
+     * 可重入锁的测试
+     */
+    @Test
+    public void testReentrantLock() {
+        ReentrantLock lock = new ReentrantLock();
+        try {
+            lock.lock();
+            System.out.println("get lock");
+
+        } catch (Exception e) {
+            lock.unlock();
+        }
+    }
+
+
 }
