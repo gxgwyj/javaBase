@@ -1,7 +1,10 @@
 package com.xyz.java.base.multithread.lock;
 
+import com.xyz.java.base.pojo.People;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -27,6 +30,25 @@ public class ReentrantLockAction {
                lock.synMethod2();
            }
        }).start();
+
+//        for (int i = 0; i < 800000000 ; i++) {
+//            People people =   new People();
+//        }
+
+        final List<People> list = new ArrayList<>();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                People people =   new People();
+                list.add(people);
+            }
+        }).start();
+
+        while (true) {
+            People people =   new People();
+            list.add(people);
+
+        }
 
     }
 
@@ -159,6 +181,8 @@ public class ReentrantLockAction {
 
         } catch (Exception e) {
             lock.unlock();
+        }
+        while (true) {
         }
     }
 
