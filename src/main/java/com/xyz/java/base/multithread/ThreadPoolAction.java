@@ -2,6 +2,9 @@ package com.xyz.java.base.multithread;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.Random;
+import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -179,6 +182,37 @@ public class ThreadPoolAction {
         while (true) {
 
         }
+    }
+
+    @Test
+    public void testExecutorService() {
+        ExecutorService executorService = Executors.newFixedThreadPool(2000);
+
+        ArrayList<Callable<Integer>> callers = new ArrayList<Callable<Integer>>();
+
+        final Random rnd = new Random(System.currentTimeMillis());
+
+        for (int i = 0; i < 100000; i++) {
+            callers.add(new Callable() {
+                @Override
+                public Object call() throws Exception {
+                    String name = Thread.currentThread().getName();
+                    int num = rnd.nextInt(10);
+                    Thread.sleep(1);
+                    System.out.println(name + ":" + num);
+                    return num;
+                }
+            });
+        }
+
+        try {
+            executorService.invokeAll(callers);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("done!");
+        executorService.shutdown();
     }
 
 
