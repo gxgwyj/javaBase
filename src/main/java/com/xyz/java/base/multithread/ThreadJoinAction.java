@@ -10,7 +10,7 @@ public class ThreadJoinAction extends Thread {
     @Override
     public void run() {
         try {
-            int secondValue = (int) (Math.random() * 10000);
+            int secondValue = (int) (Math.random() * 100);
             System.out.println(secondValue);
             Thread.sleep(secondValue);
         } catch (InterruptedException e) {
@@ -24,8 +24,15 @@ public class ThreadJoinAction extends Thread {
      * 等待线程X执行销毁后再执行线程Z后面的代码，如下面的代码：
      *  threadAction线程（X）运行在main方法的主线程中（Z），threadAction（X）调用Join使得主线程（Z）一直阻塞，
      *  直到子线程（X）中的任务执行结束，才执行main主线程中的代码。
-     *es_goods_spec
      * @param args
+     */
+
+    /**
+     * 实现原理
+     * join()方法实现是通过wait()（小提示：Object 提供的方法）。 当main线程调用threadA.join时候，
+     * main线程会获得线程对象threadA的锁（wait 意味着拿到该对象的锁),调用该对象的wait(等待时间)，
+     * 直到该对象唤醒main线程 （也就是子线程threadA执行完毕退出的时候）
+     *
      */
     public static void main(String[] args) {
         try {

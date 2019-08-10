@@ -47,10 +47,6 @@ public class VolatileAction {
                 }
             }
         },"B").start();
-
-
-        codeReordering();
-
     }
 
     /**

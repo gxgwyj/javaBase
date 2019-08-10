@@ -9,18 +9,23 @@ public class ThreadPrintNumber1 {
 
     public static void main(String[] args) {
 
-        final Object object = new Object();
+        /**
+         * 共享锁
+         */
+        final Object lock = new Object();
 
 
         Thread t1 = new Thread(new Runnable() {
             @Override
             public void run() {
-                synchronized (object) {
+                synchronized (lock) {
                     for (int i = 0; i < 10; i++) {
                         System.out.println(Thread.currentThread().getName() + "=" + (2 * i + 1));
-                        object.notify();
+                        // 调用notify之后并没有释放锁，只是通知其他线程做好获取锁的准备，该方法执行完成之后才会释放锁操作
+                        lock.notify();
                         try {
-                            object.wait();
+                            // wait释放锁操作
+                            lock.wait();
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
@@ -33,13 +38,13 @@ public class ThreadPrintNumber1 {
         Thread t2 = new Thread(new Runnable() {
             @Override
             public void run() {
-                synchronized (object) {
+                synchronized (lock) {
                     for (int i = 0; i < 10; i++) {
                         System.out.println(Thread.currentThread().getName() + "=" + (2 * i + 2));
                         // 必须先通知，再等待
-                        object.notify();
+                        lock.notify();
                         try {
-                            object.wait();
+                            lock.wait();
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
@@ -48,7 +53,6 @@ public class ThreadPrintNumber1 {
 
             }
         });
-
 
         t1.start();
         t2.start();
