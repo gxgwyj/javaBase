@@ -9,7 +9,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
-import java.util.concurrent.LinkedBlockingDeque;
+import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
@@ -213,6 +213,22 @@ public class ThreadPoolAction {
 
         System.out.println("done!");
         executorService.shutdown();
+    }
+
+
+    @Test
+    public void testThreadPool() {
+        ExecutorService executor = new ThreadPoolExecutor(3, 5, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue<Runnable>());
+            executor.execute(new Runnable() {
+                @Override
+                public void run() {
+                    System.out.println("hello");
+                }
+            });
+        while (true) {
+
+        }
+
     }
 
 
