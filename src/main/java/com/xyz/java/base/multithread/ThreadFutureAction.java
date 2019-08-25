@@ -37,5 +37,18 @@ public class ThreadFutureAction implements Callable<String> {
                 e.printStackTrace();
             }
         }
+
+
+        ThreadFutureAction futureAction = new ThreadFutureAction();
+        FutureTask<String> result = new FutureTask<>(futureAction);
+        new Thread(result).start();
+        try {
+            String s = result.get();
+            System.out.println(s);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
     }
 }
