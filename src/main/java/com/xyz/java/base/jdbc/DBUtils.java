@@ -82,7 +82,7 @@ public class DBUtils {
             executorService.execute(new Runnable() {
                 @Override
                 public void run() {
-                    ArrayList<Object[]> datas = new ArrayList<>(1000);
+                    ArrayList<Object[]> datas = new ArrayList<>(10000);
                     for (int j = 0; j < 10000; j++) {
                         Object[] params = new Object[]{UserMock.createCode(), UserMock.createName(), UserMock.createTel(), UserMock.createBalance()};
                         datas.add(params);
