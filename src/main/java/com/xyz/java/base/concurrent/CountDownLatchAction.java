@@ -10,7 +10,7 @@ import java.util.concurrent.CountDownLatch;
 public class CountDownLatchAction {
 
     public static void main(String[] args) throws Exception{
-        CountDownLatch cout = new CountDownLatch(3);
+        final CountDownLatch cout = new CountDownLatch(3);
 
         // 任务1
         new Thread(new Runnable() {

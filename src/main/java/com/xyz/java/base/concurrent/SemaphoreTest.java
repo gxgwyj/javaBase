@@ -32,7 +32,7 @@ public class SemaphoreTest {
         }
     }
     public static void main(String[] args) {
-        SemaphoreTest action = new SemaphoreTest(3);
+        final SemaphoreTest action = new SemaphoreTest(3);
         ExecutorService pool = Executors.newCachedThreadPool();
         for (int i = 0; i < 1000 ; i++) {
             pool.execute(new Runnable() {
