@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<!--自定义bean后置处理器-->
+	<bean class="com.xyz.java.base.framework.spring.CustomBeanPostProcessor">
+		<property name="order" value="1"></property>
+	</bean>
+
+	<bean class="com.xyz.java.base.framework.spring.CommonBeanPostProcessor">
+		<property name="order" value="2"></property>
+	</bean>
+
+</beans>
