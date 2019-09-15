@@ -1,7 +1,5 @@
 package com.xyz.java.base.String;
 
-import org.junit.Test;
-
 import java.util.StringTokenizer;
 
 /**
@@ -12,7 +10,6 @@ import java.util.StringTokenizer;
  */
 public class StringOperate {
 
-    @Test
     public void operateStringBuilder() {
         StringBuilder stringBuilder = new StringBuilder();
         long start = System.currentTimeMillis();
@@ -24,7 +21,6 @@ public class StringOperate {
         System.out.println("StringBuilder 使用时间：" + (end - start));
     }
 
-    @Test
     public void operateStringBuffer() {
         StringBuffer stringBuffer = new StringBuffer();
         long start = System.currentTimeMillis();
@@ -37,7 +33,6 @@ public class StringOperate {
         System.out.println("StringBuffer 使用时间：" + (end - start));
     }
 
-    @Test
     public void compareStrConstant() {
         String str1 = "abcd";
         String str2 = "abcd";
@@ -45,7 +40,6 @@ public class StringOperate {
         System.out.println(str1 == str2);
     }
 
-    @Test
     public void testStringToken() {
         String str = "name1,name2;name1,hello,i am town";
         StringTokenizer stringTokenizer = new StringTokenizer(str,",;");

@@ -1,7 +1,5 @@
 package com.xyz.java.base.multithread;
 
-import org.junit.Test;
-
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.concurrent.Callable;
@@ -28,7 +26,6 @@ public class ThreadPoolAction {
     /**
      * 适用于并发执行大量的小任务
      */
-    @Test
     public void testCachedThreadPool() {
         //创建一个可缓存线程池
         ExecutorService cachedThreadPool = Executors.newCachedThreadPool();
@@ -61,7 +58,6 @@ public class ThreadPoolAction {
     /**
      * Fixed线程池适用于处理CPU密集型任务，确保CPU在长期被工作线程使用的情况下，尽可能的少分配线程，适用执行长期的任务
      */
-    @Test
     public void testFixedThreadPool() {
         //创建一个可重用固定个数的线程池
         ExecutorService fixedThreadPool = Executors.newFixedThreadPool(3);
@@ -86,7 +82,6 @@ public class ThreadPoolAction {
     }
 
 
-    @Test
     public void testScheduledThreadPool () {
         //创建一个可重用固定个数的线程池
         ScheduledExecutorService scheduledThreadPool = Executors.newScheduledThreadPool(5);
@@ -108,7 +103,6 @@ public class ThreadPoolAction {
     /**
      *适用于串行执行任务的场景，一个任务一个任务地执行。
      */
-    @Test
     public void testSingleThreadExecutor() {
         ExecutorService singleThreadExecutor = Executors.newSingleThreadExecutor();
         for (int i = 0; i < 10; i++) {
@@ -131,9 +125,7 @@ public class ThreadPoolAction {
     }
 
 
-    @Test
     public void threadPoolException() {
-//        ThreadPoolExecutor executor = new ThreadPoolExecutor(10,20,60,TimeUnit.SECONDS,new LinkedBlockingDeque());
         ExecutorService threadPool = Executors.newFixedThreadPool(5);
         for (int i = 0; i < 5; i++) {
             Future<?> future = threadPool.submit(new Runnable() {
@@ -158,7 +150,6 @@ public class ThreadPoolAction {
         }
     }
 
-    @Test
     public void threadPoolException1() {
 
         ExecutorService executorService = Executors.newFixedThreadPool(1);
@@ -184,7 +175,6 @@ public class ThreadPoolAction {
         }
     }
 
-    @Test
     public void testExecutorService() {
         ExecutorService executorService = Executors.newFixedThreadPool(2000);
 
@@ -216,7 +206,6 @@ public class ThreadPoolAction {
     }
 
 
-    @Test
     public void testThreadPool() {
         ExecutorService executor = new ThreadPoolExecutor(3, 5, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue<Runnable>());
             executor.execute(new Runnable() {

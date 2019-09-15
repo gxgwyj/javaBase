@@ -1,7 +1,5 @@
 package com.xyz.java.base.sort;
 
-import org.junit.Test;
-
 /**
  * @author Administrator
  * @data 2019/7/27
@@ -16,7 +14,6 @@ public class SortTest {
     /**
      * 自创排序法
      */
-    @Test
     public void mySort() {
         int count = 0;
         for (int i = 1; i < arr.length; i++) {
@@ -43,7 +40,6 @@ public class SortTest {
      * 冒泡法排序，原理：每相邻的两个元素进行比较，找出最大的，向右移动
      * 本质上是按最大的向右移动，先找出第一大的，再找出第二大的，依次比较出结果
      */
-    @Test
     public void bubbleSort() {
 
         /**
@@ -68,7 +64,6 @@ public class SortTest {
     /**
      * 选择发排序
      */
-    @Test
     public void switchSort() {
         for (int i = 0; i < arr.length; i++) {
             for (int j = i+1; j < arr.length; j++) {
@@ -84,7 +79,6 @@ public class SortTest {
 
     }
 
-    @Test
     public void testQucikSort() {
         System.out.println("快速排序法");
         int narr[] = quickSort(arr, 0, arr.length - 1);

@@ -1,7 +1,6 @@
 package com.xyz.java.base.multithread.lock;
 
 import com.xyz.java.base.pojo.People;
-import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,10 +29,6 @@ public class ReentrantLockAction {
                lock.synMethod2();
            }
        }).start();
-
-//        for (int i = 0; i < 800000000 ; i++) {
-//            People people =   new People();
-//        }
 
         final List<People> list = new ArrayList<>();
         new Thread(new Runnable() {
@@ -113,7 +108,6 @@ public class ReentrantLockAction {
     /**
      * 公平锁的例子
      */
-    @Test
     public void testReentrantLock2() throws InterruptedException {
 
         // 公平锁的定义，等待锁时间长的获取锁的机会大
@@ -134,7 +128,6 @@ public class ReentrantLockAction {
         lock.unlock();
     }
 
-    @Test
     public void testUserLockMethod() {
         final Lock lock = new ReentrantLock();
         new Thread(new Runnable() {
@@ -172,7 +165,6 @@ public class ReentrantLockAction {
     /**
      * 可重入锁的测试
      */
-    @Test
     public void testReentrantLock() {
         ReentrantLock lock = new ReentrantLock();
         try {

@@ -1,7 +1,5 @@
 package com.xyz.java.base.operate;
 
-import org.junit.Test;
-
 /**
  * 类: JOperator <br>
  * 描述: java 运算符<br>
@@ -15,7 +13,6 @@ public class JOperator {
      * 左移：n << m   n乘以2的m次方
      * 右移：n >> m
     */
-    @Test
     public void leftMove() {
         int  i = 585;
         int size = 3;
@@ -29,7 +26,6 @@ public class JOperator {
      * ^ 亦或运算  比较的两个整数，二进制位运算，相同的为0，不同的为1
      * @return
      */
-    @Test
     public void orOpt() {
         int a = 809;
         int b = 809;
@@ -44,7 +40,6 @@ public class JOperator {
      *  00000000000
      * @param b
      */
-    @Test
     public void andOpt() {
         int a = 10;
         int b = 11;
@@ -57,7 +52,6 @@ public class JOperator {
      * 1111111 11111111 11111111 11111111
      *
      */
-    @Test
     public void noSymbolRightMove() {
         int a = Integer.MAX_VALUE;
         System.out.println(Integer.toBinaryString(Integer.MAX_VALUE));
@@ -72,7 +66,6 @@ public class JOperator {
      * 我们换一下位置(2^2)^(3^3)^1 ，通过两个相同的数进行异或运算得到0 ,那最终就会是0^0^1 ,最后会得到1 。
      *
      */
-    @Test
     public void findUniqueData() {
         int[] numarry = new int[]{8, 2, 3, 2, 3};
         int aim = numarry[0];
@@ -82,10 +75,4 @@ public class JOperator {
         }
         System.out.println("最后："+aim);
     }
-
-
-    /**
-     * 总结
-     * &：与运算 操作数中的位都为1，结果才为1
-     */
 }

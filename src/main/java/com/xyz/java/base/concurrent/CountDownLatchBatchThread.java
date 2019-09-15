@@ -12,7 +12,7 @@ import java.util.concurrent.Executors;
 public class CountDownLatchBatchThread {
     public static void main(String[] args) {
 
-        CountDownLatch countDownLatch = new CountDownLatch(10);
+        final CountDownLatch countDownLatch = new CountDownLatch(10);
 
         ExecutorService executorService = Executors.newCachedThreadPool();
 

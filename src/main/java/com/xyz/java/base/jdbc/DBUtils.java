@@ -73,8 +73,8 @@ public class DBUtils {
 
 
     public static void main(String[] args) {
-        DBUtils dbUtils = new DBUtils();
-        String inserSql = "insert into user(code,name,tel,balance) values(?,?,?,?)";
+        final DBUtils dbUtils = new DBUtils();
+        final  String inserSql = "insert into user(code,name,tel,balance) values(?,?,?,?)";
 
         ExecutorService executorService = Executors.newCachedThreadPool();
 
