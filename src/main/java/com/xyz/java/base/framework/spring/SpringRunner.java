@@ -1,5 +1,6 @@
 package com.xyz.java.base.framework.spring;
 
+import com.xyz.java.base.framework.spring.beans.BizService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -10,7 +11,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class SpringRunner {
     public static void main(String[] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext-*.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext-beans.xml");
         ((ClassPathXmlApplicationContext) context).start();
+        BizService bean = context.getBean(BizService.class);
+        bean.showPayServiceList();
     }
 }

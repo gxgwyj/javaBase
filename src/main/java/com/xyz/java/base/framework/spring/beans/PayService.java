@@ -2,12 +2,9 @@ package com.xyz.java.base.framework.spring.beans;
 
 /**
  * @author gaoxugang
- * @data 2019/9/15 0015 10:24
+ * @data 2019/11/2 0002 23:28
  * @description TODO
  */
-public class PayService {
-
-    public void doPay() {
-        System.out.println("执行付款操作");
-    }
+public interface PayService {
+    public void doPay();
 }
