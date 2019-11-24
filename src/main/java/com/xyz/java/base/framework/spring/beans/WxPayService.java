@@ -1,18 +1,19 @@
 package com.xyz.java.base.framework.spring.beans;
 
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Service;
-
 /**
  * @author gaoxugang
  * @data 2019/9/15 0015 10:24
  * @description TODO
  */
-@Service()
-@Qualifier("payService")
+
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
+
 /**
  * Qualifier 注解只是一种过滤手段而已
  */
+@Service
+@Qualifier("payService")
 public class WxPayService implements PayService{
     @Override
     public void doPay() {

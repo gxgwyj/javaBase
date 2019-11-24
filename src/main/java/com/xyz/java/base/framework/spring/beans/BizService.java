@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author gaoxugang
@@ -18,9 +19,13 @@ public class BizService {
     @Qualifier("payService")
     private List<PayService> payServiceList;
 
-    public void showPayServiceList(){
+    @Autowired
+    private Map<String,PayService> payServiceMap;
+
+    public void showPayServiceList() {
         for (PayService pay : payServiceList) {
             System.out.println(pay.toString());
         }
     }
+
 }
