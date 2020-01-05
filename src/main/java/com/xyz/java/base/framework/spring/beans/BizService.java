@@ -22,7 +22,24 @@ public class BizService {
     @Autowired
     private Map<String,PayService> payServiceMap;
 
+    @Autowired
+    @Qualifier("public")
+    private TestBean testBean;
+
+
+    @Autowired
+    private FactoryMethodComponent factoryMethodComponent;
+
+    @Autowired
+    private SpringConfiguration springConfiguration;
+
     public void showPayServiceList() {
+        // 调用的是普通方法
+        factoryMethodComponent.publicInstance();
+
+        // 调用的是代理方法
+        springConfiguration.publicInstance();
+
         for (PayService pay : payServiceList) {
             System.out.println(pay.toString());
         }
