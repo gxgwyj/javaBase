@@ -1,5 +1,7 @@
 package com.xyz.java.base.security;
 
+import sun.security.action.GetPropertyAction;
+
 import java.io.File;
 import java.security.AccessController;
 import java.security.PrivilegedAction;
@@ -33,5 +35,11 @@ public class PrivilegedFileUtil {
                 return null;
             }
         });
+    }
+
+    public static void main(String[] args) {
+        GetPropertyAction aTrue = new GetPropertyAction("java.rmi.server.useCodebaseOnly", "wwww");
+        String s = AccessController.doPrivileged(aTrue);
+        System.out.println(s);
     }
 }
