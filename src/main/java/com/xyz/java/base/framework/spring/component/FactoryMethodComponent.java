@@ -1,4 +1,4 @@
-package com.xyz.java.base.framework.spring.beans;
+package com.xyz.java.base.framework.spring.component;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;

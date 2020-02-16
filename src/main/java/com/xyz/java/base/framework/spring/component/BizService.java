@@ -1,5 +1,7 @@
-package com.xyz.java.base.framework.spring.beans;
+package com.xyz.java.base.framework.spring.component;
 
+import com.xyz.java.base.framework.spring.config.SpringConfiguration;
+import com.xyz.java.base.framework.spring.service.PayService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;

@@ -1,5 +1,6 @@
-package com.xyz.java.base.framework.spring.beans;
+package com.xyz.java.base.framework.spring.config;
 
+import com.xyz.java.base.framework.spring.component.TestBean;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,5 +1,6 @@
-package com.xyz.java.base.framework.spring.beans;
+package com.xyz.java.base.framework.spring.service.impl;
 
+import com.xyz.java.base.framework.spring.service.PayService;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
@@ -10,7 +11,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 @Qualifier("payService")
-public class AliPayService implements PayService{
+public class AliPayServiceImpl implements PayService {
     @Override
     public void doPay() {
         System.out.println("执行支付宝支付");

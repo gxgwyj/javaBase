@@ -1,4 +1,4 @@
-package com.xyz.java.base.framework.spring.beans;
+package com.xyz.java.base.framework.spring.component;
 
 /**
  * @author gaoxugang

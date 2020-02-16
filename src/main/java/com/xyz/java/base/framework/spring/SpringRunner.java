@@ -1,6 +1,7 @@
 package com.xyz.java.base.framework.spring;
 
-import com.xyz.java.base.framework.spring.beans.BizService;
+import com.xyz.java.base.framework.spring.component.BizService;
+import com.xyz.java.base.framework.spring.service.UserService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -10,10 +11,28 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @description spring容器工具
  */
 public class SpringRunner {
+
+    private static final ApplicationContext appContext = new ClassPathXmlApplicationContext("applicationContext-beans.xml");
+
     public static void main(String[] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext-beans.xml");
-        ((ClassPathXmlApplicationContext) context).start();
-        BizService bean = context.getBean(BizService.class);
+//        runPayServiceList();
+        runAddUser();
+
+    }
+
+
+    public static void runPayServiceList(){
+        BizService bean = appContext.getBean(BizService.class);
         bean.showPayServiceList();
     }
+
+    public static void runAddUser(){
+        UserService userService = appContext.getBean(UserService.class);
+        userService.addUser();
+    }
+
+
+
+
+
 }

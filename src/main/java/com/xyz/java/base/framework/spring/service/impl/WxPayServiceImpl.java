@@ -1,4 +1,4 @@
-package com.xyz.java.base.framework.spring.beans;
+package com.xyz.java.base.framework.spring.service.impl;
 
 /**
  * @author gaoxugang
@@ -6,6 +6,7 @@ package com.xyz.java.base.framework.spring.beans;
  * @description TODO
  */
 
+import com.xyz.java.base.framework.spring.service.PayService;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +15,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 @Qualifier("payService")
-public class WxPayService implements PayService{
+public class WxPayServiceImpl implements PayService {
     @Override
     public void doPay() {
         System.out.println("执行微信支付");
