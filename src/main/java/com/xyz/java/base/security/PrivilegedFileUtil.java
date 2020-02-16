@@ -1,5 +1,6 @@
 package com.xyz.java.base.security;
 
+import sun.security.action.GetIntegerAction;
 import sun.security.action.GetPropertyAction;
 
 import java.io.File;
@@ -39,7 +40,9 @@ public class PrivilegedFileUtil {
 
     public static void main(String[] args) {
         GetPropertyAction aTrue = new GetPropertyAction("java.rmi.server.useCodebaseOnly", "wwww");
+        int handshakeTimeout = AccessController.doPrivileged(new GetIntegerAction("sun.rmi.transport.tcp.handshakeTimeout", 60000));
         String s = AccessController.doPrivileged(aTrue);
         System.out.println(s);
+        System.out.println(handshakeTimeout);
     }
 }
