@@ -50,13 +50,16 @@ public class StringOperate {
 
 
     public static void main(String[] args) {
-        String str = "aaa";
-        ttt(str);
-        System.out.println(str);
+        String[] names = new String[]{"aaa", "bbb", "ccc", "ddd", "eee", "fff"};
+        StringBuffer stringBuffer = new StringBuffer();
+        for (int i = 0; i < names.length; ++i) {
+            stringBuffer.append(names[i]).append(',');
+        }
+        System.out.println(stringBuffer.toString());
+
+        String name = "com.xyz.bus";
+        System.out.println(name.substring(name.lastIndexOf(46) + 1));
     }
 
-    public static void ttt(String aaa) {
-        aaa = "bbbb";
-    }
 
 }
