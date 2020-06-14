@@ -5,8 +5,9 @@ import java.util.List;
 
 /**
  * @author gaoxugang
- * @data 2019/8/25 0025 9:51
- * @description TODO
+ * @data 2019/8/25  9:51
+ * @description 内存溢出测试
+ * -verbose:gc -Xms20M -Xmx20M -Xmn10M  -XX:+PrintGCDetails -XX:SurvivorRatio=8
  */
 public class OOMTest {
 
