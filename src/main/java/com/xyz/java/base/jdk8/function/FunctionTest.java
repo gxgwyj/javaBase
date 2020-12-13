@@ -25,8 +25,5 @@ public class FunctionTest {
         // 执行函数
         String result = function.apply("java");
         System.out.println(result);
-
-        String[] names = new String[]{"a","b","c"};
-        String[] clone = names.clone();
     }
 }
