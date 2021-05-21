@@ -75,4 +75,9 @@ public class JOperator {
         }
         System.out.println("最后："+aim);
     }
+
+    public static void main(String[] args) {
+        int i = -14;
+        System.out.println(~i+1);
+    }
 }
