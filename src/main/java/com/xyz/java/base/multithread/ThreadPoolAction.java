@@ -1,9 +1,7 @@
 package com.xyz.java.base.multithread;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Random;
-import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
@@ -23,16 +21,6 @@ public class ThreadPoolAction {
     public static void main(String[] args) {
         int i = Runtime.getRuntime().availableProcessors();
         System.out.println(i);
-        testThreadPoolCoreSize();
-    }
-
-
-    public static void testThreadPoolCoreSize() {
-        ExecutorService cachedThreadPool = new ThreadPoolExecutor(30, 30, 60, TimeUnit.SECONDS, new ArrayBlockingQueue(10));
-
-        while (true){
-            new String("122112" + System.currentTimeMillis());
-        }
     }
 
     /**
