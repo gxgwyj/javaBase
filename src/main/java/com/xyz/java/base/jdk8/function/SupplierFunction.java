@@ -14,5 +14,6 @@ public class SupplierFunction {
 
     public static void main(String[] args) {
         System.out.println(userSupplier.get());
+        User user = new User();
     }
 }
