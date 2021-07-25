@@ -1,5 +1,6 @@
 package com.xyz.java.base.socket;
 
+import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
 
@@ -9,8 +10,19 @@ import java.net.Socket;
  * @description 客户端
  */
 public class TcpClientService {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, InterruptedException {
         Socket client = new Socket("127.0.0.1", 9001);
-        client.getOutputStream().write(127);
+        DataOutputStream out = new DataOutputStream(client.getOutputStream());
+        out.writeByte(127);
+        out.writeUTF("java transport");
+        out.flush();
+        System.out.println(Thread.currentThread().getName());
+        Thread.sleep(1001);
+
+        out.writeUTF("java transport2");
+        out.flush();
+
+        out.close();
+        client.close();
     }
 }

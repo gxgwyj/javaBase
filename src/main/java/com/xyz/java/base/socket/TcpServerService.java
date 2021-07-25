@@ -9,7 +9,7 @@ import java.io.IOException;
  */
 public class TcpServerService {
     public static void main(String[] args) throws IOException {
-        MyServerSocketWarpper socketWarpper = new MyServerSocketWarpper(9001);
+        MyServerSocket socketWarpper = new MyServerSocket(9001);
         socketWarpper.startListenAccept();
     }
 }

@@ -16,7 +16,7 @@ import java.util.function.Predicate;
 public class PersonSearch {
 
     /**
-     * 传入一个人员列表，查找其中年龄大于某个值得人员
+     * 传入一个人员列表，查找其中年龄大于某个值的人员
      * @param roster
      * @param age
      */
