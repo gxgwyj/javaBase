@@ -44,7 +44,7 @@ public class PersonSearch {
 
     /**
      * 思考：如果你想通过性别这个属性来搜素人员该怎么办？如果以后Person 里面增加了职位，增加了工资，以后也要根据这些属性来查找人员，那我们是要再根据每一个属性再写
-     * 出对应的查找方法吗？
+     * 出对应的查找方法吗？将容易变的部分抽离出来
      * <p>
      * 方式一：将选择器单独抽离出来，如创建CheckPerson接口，不同的选择器有不同的实现，如下
      */
@@ -83,7 +83,8 @@ public class PersonSearch {
         /**
          * 通过使用接口传入的方式
          */
-        printPersonsCheck(list, new CheckPersonEligibleForSelectiveService());
+        CheckPerson checkPerson = new CheckPersonEligibleForSelectiveService();
+        printPersonsCheck(list, checkPerson);
 
         /**
          * 通过使用匿名类的方式来执行搜索，但是匿名类也显的有点繁琐
@@ -98,17 +99,25 @@ public class PersonSearch {
         /**
          * 通过使用Lambda表达式，将所需要执行的逻辑传入方法，看上去更加简洁（对list中某一个元素执行某一个函数操作）
          */
-        printPersonsCheck(list, (Person person) -> person.gender == Person.Sex.MALE && person.getAge() >= 18 && person.getAge() < 30);
+        printPersonsCheck(list,
+                (Person person) -> person.gender == Person.Sex.MALE
+                        && person.getAge() >= 18 && person.getAge() < 30);
 
         /**
          * 将lambda表达式以参数的形式传入方法，执行逻辑
          */
-        printPersonsWithPredicate(list, person -> person.gender == Person.Sex.MALE && person.getAge() >= 18 && person.getAge() < 30);
+        printPersonsWithPredicate(list,
+                person -> person.gender == Person.Sex.MALE
+                        && person.getAge() >= 18
+                        && person.getAge() < 30);
 
         /**
          * 再次改进，将过滤出来的人员执行的动作也抽象出来
          */
-        processPersons(list, person -> person.gender == Person.Sex.MALE && person.getAge() >= 18 && person.getAge() < 30, person -> person.printPersonInfo());
+        processPersons(list,
+                person -> person.gender == Person.Sex.MALE
+                        && person.getAge() >= 18 && person.getAge() < 30,
+                person -> person.printPersonInfo());
 
         processPersonsWithFunction(
                 list,

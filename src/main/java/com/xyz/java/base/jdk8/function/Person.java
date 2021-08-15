@@ -8,6 +8,10 @@ import java.time.LocalDate;
  * @description 定义java类
  */
 public class Person {
+
+    /**
+     * 性别枚举
+     */
     public enum Sex{
         MALE,
         FEMALE
