@@ -9,8 +9,14 @@ import java.util.function.Consumer;
  */
 public class LambdaScopeTest {
 
+    /**
+     * 外部类的变量
+     */
     public int x = 0;
 
+    /**
+     * 内部类定义
+     */
     class FirstLevel  {
 
         public int x = 1;
