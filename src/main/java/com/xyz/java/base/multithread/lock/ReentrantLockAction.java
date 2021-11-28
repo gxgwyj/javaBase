@@ -16,33 +16,32 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 public class ReentrantLockAction {
 
-
-
     public static void main(String[] args) {
 
-        final SynchronizedReentrantLockMethod lock = new SynchronizedReentrantLockMethod();
-       new Thread(new Runnable() {
-           @Override
-           public void run() {
-               Thread.currentThread().setName("线程A");
-               lock.synMethod1();
-               lock.synMethod2();
-           }
-       }).start();
-
         final List<People> list = new ArrayList<>();
+
+        final SynchronizedReentrantLockMethod lock = new SynchronizedReentrantLockMethod();
         new Thread(new Runnable() {
             @Override
             public void run() {
-                People people =   new People();
+                Thread.currentThread().setName("线程A");
+                lock.synMethod1();
+                lock.synMethod2();
+            }
+        }).start();
+
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                People people = new People();
                 list.add(people);
             }
         }).start();
 
         while (true) {
-            People people =   new People();
+            People people = new People();
             list.add(people);
-
         }
 
     }
