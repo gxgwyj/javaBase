@@ -62,9 +62,10 @@ public class ReadWriteLockAction {
         } catch (InterruptedException e) {
             e.printStackTrace();
         } finally {
+            readLock.unlock();
         }
 
-        readLock.unlock();
+
     }
 
 
