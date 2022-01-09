@@ -29,7 +29,7 @@ public class ThreadJoinAction extends Thread {
 
     /**
      * 实现原理
-     * join()方法实现是通过wait()（小提示：Object 提供的方法）。 当main线程调用threadA.join时候，
+     * join()方法实现是通过wait()。 当main线程调用threadA.join时候，
      * main线程会获得线程对象threadA的锁（wait 意味着拿到该对象的锁),调用该对象的wait(等待时间)，
      * 直到该对象唤醒main线程 （也就是子线程threadA执行完毕退出的时候）
      *
