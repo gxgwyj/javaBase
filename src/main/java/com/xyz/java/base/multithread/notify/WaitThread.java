@@ -30,9 +30,8 @@ public class WaitThread extends Thread {
                 System.out.println(Thread.currentThread().getName()+":开始" + System.currentTimeMillis());
                 // 释放锁的点(阻塞)，调用wait方法后，其他线程可以获取到锁
                 lock.wait();
-//                lock.wait(10000);等待某一时间内是否有线程进行唤醒，超时自动唤醒
-                // 获取锁后开始运行的点
-                System.out.println("获取锁后执行的第一个代码");
+                // 被通知后开始运行的点
+                System.out.println(Thread.currentThread().getName() + "：wait后继续执行");
                 System.out.println(Thread.currentThread().getName()+":结束" + System.currentTimeMillis());
             }
         } catch (InterruptedException e) {
