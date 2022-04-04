@@ -14,8 +14,8 @@ public class OOMTest {
     public static void main(String[] args) {
         List<Object> list = new ArrayList<>();
         // 创建n个1M大小的数组，耗尽内存
-        for (int i = 0; i < 10000; i++) {
-            list.add(new byte[1024 * 1024]);
+        while (true){
+            list.add(new byte[100]);
         }
     }
 

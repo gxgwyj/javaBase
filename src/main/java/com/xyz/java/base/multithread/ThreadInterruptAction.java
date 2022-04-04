@@ -16,6 +16,7 @@ public class ThreadInterruptAction implements Runnable{
 
         } catch (InterruptedException e) {
             System.out.println("收到了线程中断的通知");
+            System.out.println(Thread.currentThread() + " interrupted:" + Thread.interrupted());
             e.printStackTrace();
         }
 

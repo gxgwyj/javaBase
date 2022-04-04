@@ -1,9 +1,9 @@
 package com.xyz.java.base.multithread.future.jdk;
 
 import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 import java.util.concurrent.FutureTask;
 
 /**
@@ -17,7 +17,7 @@ public class FutureMain {
 
         ExecutorService executorService = Executors.newFixedThreadPool(1);
 
-        executorService.execute(futureTask);
+        Future<?> submit = executorService.submit(futureTask);
 
         System.out.println("请求完毕！");
 
