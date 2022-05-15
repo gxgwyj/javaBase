@@ -5,7 +5,7 @@ import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * @author gaoxugang
- * @data 2019/8/26 0026 10:32
+ * @data 2019/8/26 10:32
  * @description 类比synchronized 中的wait和notify
  */
 public class ConditionTest {
