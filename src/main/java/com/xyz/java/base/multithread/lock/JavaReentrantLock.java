@@ -7,7 +7,7 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * @author gaoxugang
  * @data 2019/8/26  10:26
- * @description TODO
+ * @description ReentrantLock
  */
 public class JavaReentrantLock {
 
