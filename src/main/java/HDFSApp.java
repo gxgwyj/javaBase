@@ -21,7 +21,7 @@ public class HDFSApp {
 
             //上传文件
             fileSystem.mkdirs(new Path("/dave"));
-            fileSystem.copyFromLocalFile(new Path("C:\\Users\\Administrator\\Desktop\\zj\\身份证-高旭刚-反.jpg"), new Path("/dave/gxg.jpg"));
+            fileSystem.copyFromLocalFile(new Path("C:\\Users\\Administrator\\Desktop\\高欣冉.jpg"), new Path("/dave/gxg111.jpg"));
         } catch (IOException e) {
             e.printStackTrace();
         }
