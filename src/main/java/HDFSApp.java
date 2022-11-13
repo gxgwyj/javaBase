@@ -14,7 +14,7 @@ public class HDFSApp {
 
         Configuration configuration = new Configuration();
 
-        configuration.set("fs.defaultFS", "hdfs://192.168.202.129:9000");
+        configuration.set("fs.defaultFS", "hdfs://192.168.1.103:9000");
         configuration.set("dfs.client.use.datanode.hostname","false");
         try {
             FileSystem fileSystem = FileSystem.newInstance(configuration);
