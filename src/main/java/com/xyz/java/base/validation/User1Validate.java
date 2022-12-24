@@ -14,9 +14,9 @@ import java.util.Set;
  * @description java 规则验证,参考博文  https://blog.csdn.net/heroyuchao/article/details/100696227
  */
 public class User1Validate {
+    // 参数校验注解
     @NotNull
     private String name;
-
     @Max(30)
     private int age;
 
@@ -28,24 +28,22 @@ public class User1Validate {
     public String getName() {
         return name;
     }
-
     public int getAge() {
         return age;
     }
 
     public static void main(String[] args) {
         ValidatorFactory validatorFactory = Validation.buildDefaultValidatorFactory();
-
         Validator validator = validatorFactory.getValidator();
 
+        // 创建参数
         User1Validate user1Validate = new User1Validate(null,35);
 
+        // 验证参数
         Set<ConstraintViolation<User1Validate>> validate = validator.validate(user1Validate);
 
         for (ConstraintViolation<User1Validate> constraintViolation : validate) {
             System.out.println(constraintViolation.getMessage());
         }
-
-
     }
 }
