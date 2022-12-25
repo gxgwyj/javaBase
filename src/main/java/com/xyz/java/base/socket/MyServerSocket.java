@@ -12,8 +12,6 @@ import java.net.Socket;
  */
 public class MyServerSocket {
 
-    private int port = 0;
-
     private ServerSocket server;
 
     /**
@@ -22,7 +20,6 @@ public class MyServerSocket {
      * @throws IOException
      */
     public MyServerSocket(int port) throws IOException {
-        this.port = port;
         server = new ServerSocket(port);
     }
 
