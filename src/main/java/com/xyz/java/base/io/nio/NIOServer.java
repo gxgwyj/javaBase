@@ -8,6 +8,7 @@ import java.nio.channels.Selector;
 import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
 import java.util.Iterator;
+import java.util.Set;
 
 /**
  * @author gaoxugang
@@ -29,6 +30,8 @@ public class NIOServer {
 
             // 将通道注册到选择器上，并且开始指定监听的事件
             serverSocketChannel.register(selector, SelectionKey.OP_ACCEPT);
+
+            Set<SelectionKey> keys = selector.keys();
 
             // 轮询已经就绪的事件
             while (selector.select() > 0) {
