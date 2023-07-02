@@ -8,6 +8,9 @@ package com.xyz.java.base.jni;
 public class TestHello {
 
     static {
+        /**
+         * JNI-Dll.dll 文件在JAVA_HOME的bin中
+         */
         System.loadLibrary("JNI-Dll");
     }
 
