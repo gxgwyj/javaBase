@@ -10,6 +10,13 @@ public class ThreadJoinAction extends Thread {
     @Override
     public void run() {
         try {
+
+            Thread thread = Thread.currentThread();
+            System.out.println(thread.getName());
+            System.out.println(thread.getState());
+            System.out.println(thread.isAlive());
+            System.out.println(thread.isDaemon());// 是否是守护线程
+
             int secondValue = (int) (Math.random() * 100);
             System.out.println(secondValue);
             Thread.sleep(secondValue);
@@ -37,6 +44,7 @@ public class ThreadJoinAction extends Thread {
     public static void main(String[] args) {
         try {
             ThreadJoinAction threadAction = new ThreadJoinAction();
+
             threadAction.start();
             threadAction.join();
             System.out.println("子线程已经执行完毕，执行改语句");

@@ -18,6 +18,9 @@ public class ThreadInterruptAction implements Runnable{
             System.out.println("收到了线程中断的通知");
             System.out.println(Thread.currentThread() + " interrupted:" + Thread.interrupted());
             e.printStackTrace();
+            // 获取到中断信号后，可以在catch语句中再次中断线程（原因：线程在休眠期间被中断，那么会自动清除中断信号，手动添加中断信号，中断信号依然被捕获到）
+            Thread.currentThread().interrupt();
+            System.out.println(Thread.currentThread().isInterrupted());
         }
 
         System.out.println("休眠后的逻辑");
@@ -33,8 +36,5 @@ public class ThreadInterruptAction implements Runnable{
 
         // 发起线程中断指令
         t.interrupt();
-
-        System.out.println(t.interrupted());
-        System.out.println(t.isInterrupted());
     }
 }
